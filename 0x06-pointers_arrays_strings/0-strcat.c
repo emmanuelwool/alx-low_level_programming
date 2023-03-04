@@ -3,25 +3,25 @@
 #include <stdlib.h>
 
 /**
- * _strdup - function to return ptr containing cpy of string
- * @str: string to be copied
+ * create_array - function to create an array of chars
+ * @c: character
+ * @size: the size of the memory to print
  *
- * Return: Null for failure else return ptr.
+ * Return: NULL if 0 or fail else return ptr
  */
-char *_strdup(char *str)
+char *create_array(unsigned int size, char c)
 {
 	char *s;
-	int a, b;
+	unsigned int a;
 
-	if (str == 0)
+	if (size == 0)
 		return (NULL);
-	for (a = 0; str[a] != '\0'; a++)
-		;
-	a++;
-	s = malloc(a * sizeof(*s));
-	if (s == 0)
+	s = malloc(size * sizeof(*s));
+	if (s == NULL)
 		return (NULL);
-	for (b = 0; b < a; b++)
-		s[b] = str[b];
+	for (a = 0; a < size; a++)
+	{
+		s[a] = c;
+	}
 	return (s);
 }
